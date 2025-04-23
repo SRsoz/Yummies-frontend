@@ -1,10 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-</body>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    >
+    <title>Recept Inloggning</title>
+  </head>
+  <header>
+    <div class="logo">YUMMIES</div>
+    <nav>
+      <ul>
+        <li><a href="createRecipe.html">Create recipe</a></li>
+        <li><a href="#">Your recipes</a></li>
+        <li><a href="signIn.html">Sign out</a></li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <section class="hero">
+      <h1>Welcome to Yummies!</h1>
+      <p>
+        Here you can create recipes and overview others beautiful creations.
+      </p>
+    </section>
+
+    <section class="latest-recipes">
+      <div class="header">
+        <h2>Latest recipes</h2>
+        <input type="text" placeholder="Search specific recipe" >
+      </div>
+      <div class="recipes-grid">
+        <div class="recipes-card">
+          <img src="/path-to-your-image1.jpg" alt="Recipe 1" >
+          <p>Caramel Strawberry Milkshake</p>
+        </div>
+        <div class="recipes-card">
+          <img src="/path-to-your-image1.jpg" alt="Recipe 2" >
+          <p>Caramel Banana Milkshake</p>
+        </div>
+        <div class="recipes-card">
+          <img src="/path-to-your-image1.jpg" alt="Recipe 3" >
+          <p>Fat Milkshake</p>
+        </div>
+      </div>
+    </section>
+    <script type="module" src="/src/index.ts"></script>
+  </body>
 </html>

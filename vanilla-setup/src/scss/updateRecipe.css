@@ -1,0 +1,118 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #e6e1f5;
+  color: #333;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #e6e1f5;
+}
+header .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #8b5cf6;
+}
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+header nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+header nav ul li a:hover {
+  color: #8b5cf6;
+}
+
+main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  text-align: center;
+}
+main .intro-text {
+  font-size: 24px;
+  margin-bottom: 40px;
+  line-height: 1.5;
+}
+main .form-group {
+  margin-bottom: 30px;
+  text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+main .form-group label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+main .form-group .title-input {
+  width: 40%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  outline: none;
+  transition: border-color 0.3s;
+}
+main .form-group .title-input:focus {
+  border-color: #8b5cf6;
+}
+main .form-group .textarea {
+  width: 100%;
+  height: 150px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: #fff;
+  resize: none;
+  outline: none;
+  transition: border-color 0.3s;
+}
+main .form-group .textarea:focus {
+  border-color: #8b5cf6;
+}
+main .button-group {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+main .button-group .delete-btn {
+  padding: 10px 20px;
+  background-color: #ff4d4d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+main .button-group .delete-btn:hover {
+  background-color: #e04343;
+}
+main .button-group .save-btn {
+  padding: 10px 20px;
+  background-color: #ccc;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+main .button-group .save-btn:hover {
+  background-color: #b3b3b3;
+}/*# sourceMappingURL=updateRecipe.css.map */
