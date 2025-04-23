@@ -1,0 +1,132 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #e0d4ff, #f3e7ff);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+}
+header .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+header .logo img {
+  width: 40px;
+  height: 40px;
+}
+header .logo span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+header nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1rem;
+  border-bottom: 1px solid #333;
+  padding-bottom: 2px;
+  transition: color 0.3s;
+}
+header nav a:hover {
+  color: #5b86e5;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+main .login-container {
+  background: white;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+main .login-container h2 {
+  font-size: 1.5rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+main .login-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+main .login-container form .input-group {
+  text-align: left;
+}
+main .login-container form .input-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #333;
+  margin-bottom: 5px;
+}
+main .login-container form .input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: #333;
+  outline: none;
+  transition: border-color 0.3s;
+}
+main .login-container form .input-group input:focus {
+  border-color: #5b86e5;
+}
+main .login-container form .input-group .password-wrapper {
+  position: relative;
+}
+main .login-container form .input-group .password-wrapper .toggle-password {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #666;
+}
+main .login-container form button {
+  background: #5b86e5;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+main .login-container form button:hover {
+  background: #2f66de;
+}
+main .login-container form p {
+  font-size: 0.9rem;
+  color: #666;
+}
+main .login-container form p a {
+  color: #5b86e5;
+  text-decoration: none;
+  font-weight: bold;
+}
+main .login-container form p a:hover {
+  text-decoration: underline;
+}/*# sourceMappingURL=signIn.css.map */
