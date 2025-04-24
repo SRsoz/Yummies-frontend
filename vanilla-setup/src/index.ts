@@ -1,13 +1,5 @@
 // Import the main SCSS styling file
-import './scss/index.scss';
-
-// Import functions for creating recipes and logging in
-import { skapaRecept } from './TypeScript/createRecipe';
-import { loggaIn } from './TypeScript/signIn';
-
-// Call the imported functions to set up recipe creation and user login
-skapaRecept();
-loggaIn();
+import './scss/index.scss'; 
 
 // Define the API endpoint for fetching recipes
 const API_URL = "https://yummies-vlth.onrender.com/api/recipes/";

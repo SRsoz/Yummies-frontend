@@ -13,27 +13,40 @@
             <span>YUMMIES</span>
         </div>
         <nav>
-            <a href="index.html">Home</a>
+            <a href="index.html">Home</a> <!-- Navigation link to homepage -->
         </nav>
     </header>
+
+    <!-- Main content: Sign-in form -->
     <main>
         <div class="login-container">
             <h2>Login to your account</h2>
             <form>
+
+            <!-- Email input field -->
                 <div class="input-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" placeholder="Enter your email" required>
                 </div>
+
+            <!-- Password input field -->
                 <div class="input-group">
                     <label for="password">Password</label>
                     <div class="password-wrapper">
                         <input type="password" id="password" placeholder="Enter your password" required>
                     </div>
                 </div>
+
+            <!-- Submit button -->
                 <button type="submit">LOGIN NOW</button>
+
+            <!-- Link to register if user doesn't have an account -->
                 <p>Don't have an account? <a href="register.html">Sign Up</a></p>
             </form>
         </div>
     </main>
+
+    <!-- Load TypeScript functionality for login -->
+    <script type="module" src="./src/TypeScript/signIn.ts"></script>
 </body>
 </html>
