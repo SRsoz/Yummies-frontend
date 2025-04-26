@@ -25,8 +25,53 @@ function displayRecipes(recipes: any[]) {
       // Basic HTML content for each recipe card
       card.innerHTML = `
 
-        <p>${recipe.title}</p>
+        <h4>${recipe.title}</h4>
+         <p>${recipe.instructions}</p>
+        <div class="button-group">
+          <button class="edit-btn">Edit</button>
+          <button class="delete-btn">Delete</button>
+        </div>
       `;
+
+      // EDIT BUTTON FUNCTIONALITY
+      const editBtn = card.querySelector(".edit-btn") as HTMLButtonElement;
+      editBtn.addEventListener("click", () => {
+        const recipeId = recipe._id;
+      localStorage.setItem("editRecipeId", recipeId);
+        window.location.href = `updateRecipe.html?id=${recipe._id}`;
+      });
+
+      // DELETE BUTTON FUNCTIONALITY
+      const deleteBtn = card.querySelector(".delete-btn") as HTMLButtonElement;
+      deleteBtn.addEventListener("click", async () => {
+        const confirmDelete = confirm("Are you sure you want to delete this recipe?");
+        if (!confirmDelete) return;
+
+        const token = localStorage.getItem("token");
+        try {
+          const response = await fetch(`${API_URL}${recipe._id}`, {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (!response.ok) {
+            const data = await response.json();
+            alert(data.message || "Failed to delete recipe");
+            return;
+          }
+
+          // Remove from UI
+          card.remove();
+          allRecipes = allRecipes.filter((data) =>
+            data._id !== recipe._id
+          );
+
+        } catch (error) {
+          console.error("Error deleting recipe:", error);
+        }
+      });
 
       recipeGrid.appendChild(card);
     });
@@ -45,7 +90,7 @@ async function fetchRecipes() {
     // Parse the JSON response
     const recipes = await response.json();
     allRecipes = recipes;
-
+  
     // Display all recipes
     displayRecipes(allRecipes);
   } catch (error) {
