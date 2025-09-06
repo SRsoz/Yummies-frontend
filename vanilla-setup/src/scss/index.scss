@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background-color: #f1eaff;
+  background-color: #ffffff;
   color: #000;
 }
 
@@ -9,12 +9,12 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
+  padding: 10px;
 
-  .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: rgb(16, 106, 121);
+  .logo img {
+    height: auto;
+    max-height: 200px;
+    display: block;
   }
 
   nav {
@@ -33,7 +33,7 @@ header {
           transition: color 0.3s;
 
           &:hover {
-            color: #c77171;
+            color: #5b184b;
           }
         }
       }
@@ -55,7 +55,7 @@ header {
 .latest-recipes {
   max-width: 1000px;
   margin: 2rem auto;
-  background: #f0e8ff;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
@@ -78,21 +78,75 @@ header {
       padding: 0.5rem;
       border: 1px solid #ccc;
       border-radius: 6px;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
   }
 
   .recipes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    padding-top: 1rem;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    }
+}
 
-    .recipe-card {
-      padding: 2rem;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-      
+.recipes-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+
+  .card-content {
+    padding: 1rem;
+    flex-grow: 1;
+
+    h4 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #555;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  .button-group {
+    padding: 1rem;
+    border-top: 1px solid #eee;
+    display: flex;
+    justify-content: space-between;
+
+    button {
+      padding: 0.5rem 1.5rem;
+      border: 1px solid #000;
+      border-radius: 20px;
+      background: #fff;
+      cursor: pointer;
+      transition: 0.2s ease;
+
+      &:hover {
+        background: #5b184b;
+        color: #fff;
+      }
     }
   }
 }
