@@ -2,7 +2,7 @@
 import './scss/index.scss'; 
 
 // Define the API endpoint for fetching recipes
-const API_URL = "https://yummies-vlth.onrender.com/api/recipes/";
+const API_URL = import.meta.env.VITE_API_URL;
 
 // Get DOM elements: the container where recipes will be displayed and the search input
 const recipeGrid = document.querySelector(".recipes-grid");

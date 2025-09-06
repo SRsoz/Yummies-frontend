@@ -1,5 +1,5 @@
 import "../scss/recipe.scss";
-const API_URL = "https://yummies-vlth.onrender.com/api/recipes/";
+const API_URL = import.meta.env.VITE_API_URL;
 
 const params = new URLSearchParams(window.location.search);
 const recipeId = params.get("id");
