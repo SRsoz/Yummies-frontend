@@ -1,1 +1,1 @@
-import "./style.scss"
+import "../scss/yourAccount.scss";

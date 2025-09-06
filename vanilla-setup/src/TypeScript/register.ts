@@ -1,4 +1,4 @@
-import "../scss/style.scss"
+import "../scss/register.scss";
 
 // Grab references to form and input elements
 const form = document.querySelector("form") as HTMLFormElement;
