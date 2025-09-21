@@ -15,7 +15,8 @@ export default defineConfig({
         yourRecipes: resolve(__dirname, 'yourRecipes.html'),
         createRecipe: resolve(__dirname, 'createRecipe.html'),
         yourAccount: resolve(__dirname, 'yourAccount.html'),
-        updateRecipe: resolve(__dirname, 'updateRecipe.html')
+        updateRecipe: resolve(__dirname, 'updateRecipe.html'),
+        recipe: resolve(__dirname, 'recipe.html')
       },
     },
   },

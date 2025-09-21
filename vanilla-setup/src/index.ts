@@ -36,7 +36,6 @@ function displayRecipes(recipes: any[]) {
     // Klick på "View Recipe"
     const viewBtn = card.querySelector(".view-btn") as HTMLButtonElement;
     viewBtn.addEventListener("click", () => {
-      console.log("Clicked recipe id:", recipe._id);
       window.location.href = `recipe.html?id=${recipe._id}`;
     });
 
