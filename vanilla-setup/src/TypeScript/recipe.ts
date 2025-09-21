@@ -1,40 +1,72 @@
 import "../scss/recipe.scss";
+
 const API_URL = import.meta.env.VITE_API_URL;
 
 const params = new URLSearchParams(window.location.search);
 const recipeId = params.get("id");
+console.log("Recipe ID:", recipeId);
 
-const titleEl = document.getElementById("recipe-title") as HTMLElement;
-const imageEl = document.getElementById("recipe-image") as HTMLImageElement;
-const ingredientsEl = document.getElementById("recipe-ingredients") as HTMLElement;
-const instructionsEl = document.getElementById("recipe-instructions") as HTMLElement;
+const titleEl = document.getElementById("recipe-title") as HTMLElement | null;
+const imageEl = document.getElementById("recipe-image") as HTMLImageElement | null;
+const ingredientsEl = document.getElementById("recipe-ingredients") as HTMLElement | null;
+const instructionsEl = document.getElementById("recipe-instructions") as HTMLElement | null;
 
-async function fetchRecipe() {
-  if (!recipeId) return;
+type Recipe = {
+  title: string;
+  image?: string;
+  ingredients: string[];
+  instructions: string;
+};
 
-  try {
-    const response = await fetch(`${API_URL}${recipeId}`);
-    if (!response.ok) throw new Error("Failed to fetch recipe");
+if (!recipeId || !titleEl || !imageEl || !ingredientsEl || !instructionsEl) {
+  console.error("Missing elements or recipeId");
+} else {
+  async function fetchRecipe() {
+    try {
+      const response = await fetch(`${API_URL}/${recipeId}`);
+      if (!response.ok) throw new Error("Failed to fetch recipe");
 
-    const recipe = await response.json();
+      const recipe: Recipe = await response.json();
 
-    titleEl.textContent = recipe.title;
-    imageEl.src = recipe.image || '';
-    imageEl.alt = recipe.title;
-    
-    ingredientsEl.innerHTML = '';
-    recipe.ingredients.forEach((ingredient: string) => {
-      const li = document.createElement("li");
-      li.textContent = ingredient;
-      ingredientsEl.appendChild(li);
-    });
+      if (titleEl) {
+        titleEl.textContent = recipe.title ?? "Untitled";
+      }
+      if (imageEl) {
+        imageEl.src = recipe.image || "/placeholder.jpg";
+        imageEl.alt = recipe.title ?? "Recipe image";
+      }
 
-    instructionsEl.textContent = recipe.instructions;
+      if (ingredientsEl) {
+        ingredientsEl.innerHTML = "";
+        if (Array.isArray(recipe.ingredients)) {
+          recipe.ingredients.forEach((ingredient: string) => {
+            const li = document.createElement("li");
+            li.textContent = ingredient;
+            ingredientsEl.appendChild(li);
+          });
+        }
+      }
 
-  } catch (error) {
-    console.error("Error fetching recipe:", error);
-    titleEl.textContent = "Recipe not found";
+      if (instructionsEl) {
+        instructionsEl.textContent = recipe.instructions ?? "";
+      }
+
+    } catch (error) {
+      console.error("Error fetching recipe:", error);
+      if (titleEl) {
+        titleEl.textContent = "Recipe not found";
+      }
+      if (imageEl) {
+        imageEl.src = "/placeholder.jpg";
+      }
+      if (ingredientsEl) {
+        ingredientsEl.innerHTML = "";
+      }
+      if (instructionsEl) {
+        instructionsEl.textContent = "";
+      }
+    }
   }
-}
 
-fetchRecipe();
+  fetchRecipe();
+}
