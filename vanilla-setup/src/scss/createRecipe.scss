@@ -1,152 +1,168 @@
-
-$primary-bg: #e6e1f5;
-$white: #fff;
-$black: #333;
-$delete-btn-bg: #ff4d4d;
-$delete-btn-hover: #e04343;
-$save-btn-bg: #ccc;
-$save-btn-hover: #b3b3b3;
-$logo-color: #8b5cf6;
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@import './variables.scss';
 
 body {
-  font-family: Arial, sans-serif;
-  background-color: $primary-bg;
-  color: $black;
+  font-family: $font-stack;
+  background-color: $secondary-color;
+  min-height: 100vh;
+  margin: 0;
 }
-
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  background-color: $primary-bg;
+  padding: $spacing-sm $spacing-lg;
+  background-color: $secondary-color;
 
-  .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: $logo-color;
+  .logo img {
+    max-height: 200px;
+    display: block;
   }
 
-  nav {
-    ul {
-      list-style: none;
+  nav ul {
+    display: flex;
+    gap: $spacing-md;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    li a {
+      text-decoration: none;
+      color: $text-color;
+      font-size: 1rem;
+      transition: color 0.3s;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+}
+
+main {
+  max-width: 600px;
+  margin: $spacing-xl auto;
+  padding: $spacing-lg;
+}
+
+.form-container {
+  background: $secondary-color;
+  padding: $spacing-lg;
+  border-radius: $radius-md;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  margin-top: $spacing-lg;
+
+  h2 {
+    text-align: center;
+    margin-bottom: $spacing-lg;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .recipe-form {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-weight: 600;
+      margin-top: $spacing-md;
+      margin-bottom: 0.3rem;
+      display: block;
+    }
+
+    input[type="text"],
+    textarea {
+      width: 100%;
+      padding: 0.6rem 1rem;
+      border: 1px solid $text-border;
+      border-radius: $radius-sm;
+      font-size: 0.95rem;
+      background-color: $secondary-color;
+      transition: border-color 0.3s;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+      }
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    input[type="file"] {
+      margin-top: $spacing-sm;
+      border: none;
+      font-family: inherit;
+
+      &::file-selector-button {
+        padding: $spacing-sm $spacing-md;
+        border-radius: $radius-lg;
+        border: 1px solid $primary-color;
+        background: $primary-color;
+        color: $secondary-color;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+          background: darken($primary-color, 15%);
+        }
+      }
+    }
+
+    .note {
+      font-size: 0.85rem;
+      color: $text-light;
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    .button-group {
       display: flex;
-      gap: 20px;
+      justify-content: flex-end;
+      gap: $spacing-sm;
+      margin-top: $spacing-lg;
 
-      li {
-        a {
-          text-decoration: none;
-          color: $black;
-          font-size: 16px;
-          transition: color 0.3s;
+      button {
+        padding: $spacing-sm $spacing-md;
+        border-radius: $radius-lg;
+        cursor: pointer;
+        transition: 0.2s;
+        font-family: inherit;
+      }
 
-          &:hover {
-            color: $logo-color;
-          }
+      .save-btn {
+        border: 1px solid $primary-color;
+        background: $primary-color;
+        color: $secondary-color;
+
+        &:hover {
+          background: darken($primary-color, 15%);
+        }
+      }
+
+      .cancel-btn {
+        border: 1px solid $text-color;
+        background: $secondary-color;
+
+        &:hover {
+          background: $primary-color;
+          color: $secondary-color;
         }
       }
     }
   }
 }
 
-
-main {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 40px 20px;
+.error {
   text-align: center;
+  color: $error-color;
+  margin-top: $spacing-md;
+}
 
-  .intro-text {
-    font-size: 24px;
-    margin-bottom: 40px;
-    line-height: 1.5;
-  }
-
-  .form-group {
-    margin-bottom: 30px;
-    text-align: left;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-
-    label {
-      display: block;
-      font-size: 18px;
-      margin-bottom: 10px;
-    }
-
-    .title-input {
-      width: 40%;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid $black;
-      border-radius: 5px;
-      outline: none;
-      transition: border-color 0.3s;
-      
-
-      &:focus {
-        border-color: $logo-color;
-      }
-    }
-
-    .textarea {
-      width: 100%;
-      height: 150px;
-      padding: 10px;
-      font-size: 16px;
-      border: 1px solid $black;
-      border-radius: 5px;
-      background-color: $white;
-      resize: none;
-      outline: none;
-      transition: border-color 0.3s;
-
-      &:focus {
-        border-color: $logo-color;
-      }
-    }
-  }
-
-  .button-group {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-
-    .delete-btn {
-      padding: 10px 20px;
-      background-color: $delete-btn-bg;
-      color: $white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: $delete-btn-hover;
-      }
-    }
-
-    .save-btn {
-      padding: 10px 20px;
-      background-color: $save-btn-bg;
-      color: $black;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-
-      &:hover {
-        background-color: $save-btn-hover;
-      }
-    }
-  }
+.loading {
+  text-align: center;
+  margin-top: $spacing-lg;
+  font-size: 1.1rem;
 }
