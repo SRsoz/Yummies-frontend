@@ -1,5 +1,13 @@
 import "./scss/index.scss";
 
+interface Recipe {
+  _id: string;
+  title: string;
+  ingredients: string[];
+  instructions: string;
+  image?: string;
+}
+
 const recipeContainer = document.getElementById("recipeContainer");
 const searchInput = document.querySelector(
   'input[placeholder="Search specific recipe"]'
@@ -7,9 +15,9 @@ const searchInput = document.querySelector(
 
 const API_URL = import.meta.env.VITE_API_URL;
 
-let allRecipes: any[] = [];
+let allRecipes: Recipe[] = [];
 
-function displayRecipes(recipes: any[]) {
+function displayRecipes(recipes: Recipe[]) {
   if (!recipeContainer) return;
 
   recipeContainer.innerHTML = "";
@@ -33,7 +41,6 @@ function displayRecipes(recipes: any[]) {
       </div>
     `;
 
-    // Klick på "View Recipe"
     const viewBtn = card.querySelector(".view-btn") as HTMLButtonElement;
     viewBtn.addEventListener("click", () => {
       window.location.href = `recipe.html?id=${recipe._id}`;
@@ -50,10 +57,10 @@ async function fetchRecipes() {
       headers: { "Content-Type": "application/json" },
     });
 
-    const data = await response.json();
+    const data: Recipe[] = await response.json();
 
     if (!response.ok) {
-      throw new Error(data.message || "Could not get recipes");
+      throw new Error((data as any).message || "Could not get recipes");
     }
 
     allRecipes = data;

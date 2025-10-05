@@ -1,15 +1,15 @@
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-  color: #000;
+  font-family: $font-stack;
+  background-color: $secondary-color;
+  color: $text-color;
 }
 
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px;
+  padding: $spacing-md;
 
   .logo img {
     height: auto;
@@ -20,7 +20,7 @@ header {
   nav {
     ul {
       display: flex;
-      gap: 20px;
+      gap: $spacing-lg;
       list-style: none;
       margin: 0;
       padding: 0;
@@ -28,12 +28,12 @@ header {
       li {
         a {
           font-size: 1rem;
-          color: #000;
+          color: $text-color;
           text-decoration: none;
           transition: color 0.3s;
 
           &:hover {
-            color: #5b184b;
+            color: $primary-color;
           }
         }
       }
@@ -43,41 +43,41 @@ header {
 
 .hero {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: $spacing-lg;
 
   h1 {
     font-size: 2rem;
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: $spacing-sm;
   }
 }
 
 .latest-recipes {
   max-width: 1000px;
-  margin: 2rem auto;
-  background: #ffffff;
-  padding: 2rem;
-  border-radius: 12px;
+  margin: $spacing-lg auto;
+  background: $secondary-color;
+  padding: $spacing-xl;
+  border-radius: $radius-md;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: $spacing-lg;
 
     h2 {
       margin: 0;
       font-size: 1.5rem;
-      font-family: "Poppins", serif;
+      font-family: $font-stack;
       font-weight: 600;
     }
 
     input {
       width: 200px;
-      padding: 0.5rem;
+      padding: $spacing-sm $spacing-md;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: $radius-sm;
 
       &:focus {
         outline: none;
@@ -89,14 +89,14 @@ header {
   .recipes-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-    margin-top: 2rem;
+    gap: $spacing-lg;
+    margin-top: $spacing-lg;
     }
 }
 
 .recipes-card {
-  background: #fff;
-  border-radius: 12px;
+  background: $secondary-color;
+  border-radius: $radius-md;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   overflow: hidden;
   display: flex;
@@ -109,18 +109,18 @@ header {
   }
 
   .card-content {
-    padding: 1rem;
+    padding: $spacing-md;
     flex-grow: 1;
 
     h4 {
       font-size: 1.1rem;
-      margin-bottom: 0.5rem;
+      margin-bottom: $spacing-sm;
     }
 
     p {
       font-size: 0.9rem;
       color: #555;
-      margin-bottom: 1rem;
+      margin-bottom: $spacing-md;
       overflow: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
@@ -130,22 +130,22 @@ header {
   }
 
   .button-group {
-    padding: 1rem;
+    padding: $spacing-md;
     border-top: 1px solid #eee;
     display: flex;
     justify-content: space-between;
 
     button {
-      padding: 0.5rem 1.5rem;
-      border: 1px solid #000;
-      border-radius: 20px;
-      background: #fff;
+      padding: $spacing-sm $spacing-lg;
+      border: 1px solid $text-color;
+      border-radius: $radius-lg;
+      background: $secondary-color;
       cursor: pointer;
       transition: 0.2s ease;
 
       &:hover {
-        background: #5b184b;
-        color: #fff;
+        background: $primary-color;
+        color: $secondary-color;
       }
     }
   }
