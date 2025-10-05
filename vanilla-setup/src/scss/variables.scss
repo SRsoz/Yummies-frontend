@@ -1,3 +1,4 @@
+@use 'sass:color';
 // Färger
 $primary-color: #5b184b;
 $secondary-color: #ffffff; 
@@ -5,8 +6,8 @@ $text-color: #000;
 $error-color: #da2232;
 
 // Extra färger för olika nivåer av text
-$text-light: lighten($text-color, 40%);
-$text-border: lighten($text-color, 50%);
+$text-light: color.adjust($text-color, $lightness: 40%);
+$text-border: color.adjust($text-color, $lightness: 50%);
 
 // Typsnitt
 $font-stack: 'Poppins', sans-serif;
