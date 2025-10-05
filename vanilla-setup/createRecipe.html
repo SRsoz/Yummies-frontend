@@ -1,57 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Create Recipe</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="./src/scss/createRecipe.css" />
-</head>
-<body>
-  <header>
-    <div class="logo">
-      <img src="/logo.svg" alt="Yummies Logo" />
-    </div>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="createRecipe.html">Create recipe</a></li>
-        <li><a href="yourRecipes.html">Your recipes</a></li>
-        <li><a href="signIn.html">Sign out</a></li>
-      </ul>
-    </nav>
-  </header>
+  <head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <title>Create Recipe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" >
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="./src/scss/createRecipe.css" >
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="/logo.svg" alt="Yummies Logo" >
+      </div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="createRecipe.html">Create recipe</a></li>
+          <li><a href="yourRecipes.html">Your recipes</a></li>
+          <li><a href="signIn.html">Sign out</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <main>
-    <h2>Create your own recipe</h2>
-    <div class="form-container">
-      <form id="createForm" class="recipe-form">
-        <label for="title">Title</label>
-        <input type="text" id="title" placeholder="E.g. Chocolate Cake" required />
+    <main>
+      <h2>Create your own recipe</h2>
+      <div class="form-container">
+        <form id="createForm" class="recipe-form">
+          <label for="title">Title</label>
+          <input
+            type="text"
+            id="title"
+            placeholder="E.g. Chocolate Cake"
+            required
+          >
 
-        <label for="ingredients">Ingredients</label>
-        <textarea id="ingredients" placeholder="List your ingredients..." required></textarea>
+          <label for="ingredients">Ingredients</label>
+          <textarea
+            id="ingredients"
+            placeholder="List your ingredients..."
+            required
+          ></textarea>
 
-        <label for="instructions">Instructions</label>
-        <textarea id="instructions" placeholder="Describe the steps..." required></textarea>
+          <label for="instructions">Instructions</label>
+          <textarea
+            id="instructions"
+            placeholder="Describe the steps..."
+            required
+          ></textarea>
 
-        <label for="image">Image</label>
-        <input type="file" id="image" accept="image/*" />
-        <p class="note">If no image is uploaded, a placeholder will be used.</p>
+          <label for="image">Image</label>
+          <input type="file" id="image" accept="image/*" >
+          <p class="note">
+            If no image is uploaded, a placeholder will be used.
+          </p>
 
-        <div class="button-group">
-          <button type="submit" class="save-btn">Save recipe</button>
-          <button type="button" id="cancelBtn" class="cancel-btn">Cancel</button>
-        </div>
-      </form>
-    </div>
-  </main>
+          <div class="button-group">
+            <button type="submit" id="saveBtn" class="save-btn">
+              Save recipe
+            </button>
+            <button type="button" id="cancelBtn" class="cancel-btn">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
 
-  <script type="module" src="./src/TypeScript/createRecipe.ts"></script>
-</body>
+    <script type="module" src="./src/TypeScript/createRecipe.ts"></script>
+  </body>
 </html>

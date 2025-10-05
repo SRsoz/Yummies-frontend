@@ -1,22 +1,19 @@
-import '../scss/createRecipe.scss'; 
+import '../scss/createRecipe.scss';
 
 const saveBtn = document.getElementById("saveBtn") as HTMLButtonElement;
+const cancelBtn = document.getElementById("cancelBtn") as HTMLButtonElement;
 const titleInput = document.getElementById("title") as HTMLInputElement;
 const ingredientsInput = document.getElementById("ingredients") as HTMLTextAreaElement;
 const instructionsInput = document.getElementById("instructions") as HTMLTextAreaElement;
-const imageInput = document.getElementById("image") as HTMLInputElement;
 
 saveBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
-  const formData = new FormData();
-  formData.append("title", titleInput.value);
-  formData.append("ingredients", ingredientsInput.value);
-  formData.append("instructions", instructionsInput.value);
-
-  if (imageInput.files && imageInput.files[0]) {
-    formData.append("image", imageInput.files[0]);
-  }
+  const recipe = {
+    title: titleInput.value,
+    ingredients: ingredientsInput.value.split(",").map(i => i.trim()),
+    instructions: instructionsInput.value,
+  };
 
   try {
     const token = localStorage.getItem("token");
@@ -28,9 +25,10 @@ saveBtn.addEventListener("click", async (e) => {
     const response = await fetch("https://yummies-vlth.onrender.com/api/recipes", {
       method: "POST",
       headers: {
+        "Content-Type": "application/json",
         Authorization: `Bearer ${token}`,
       },
-      body: formData,
+      body: JSON.stringify(recipe),
     });
 
     const data = await response.json();
@@ -46,4 +44,9 @@ saveBtn.addEventListener("click", async (e) => {
     console.error("Error saving recipe:", err);
     alert("Something went wrong");
   }
+});
+
+cancelBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  window.history.back();
 });
