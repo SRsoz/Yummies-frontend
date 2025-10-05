@@ -1,5 +1,10 @@
 import '../scss/createRecipe.scss';
 
+const token = localStorage.getItem("token");
+if (!token) {
+  window.location.href = "signIn.html";
+}
+
 const saveBtn = document.getElementById("saveBtn") as HTMLButtonElement;
 const cancelBtn = document.getElementById("cancelBtn") as HTMLButtonElement;
 const titleInput = document.getElementById("title") as HTMLInputElement;
@@ -10,18 +15,12 @@ saveBtn.addEventListener("click", async (e) => {
   e.preventDefault();
 
   const recipe = {
-    title: titleInput.value,
+    title: titleInput.value.trim(),
     ingredients: ingredientsInput.value.split(",").map(i => i.trim()),
-    instructions: instructionsInput.value,
+    instructions: instructionsInput.value.trim(),
   };
 
   try {
-    const token = localStorage.getItem("token");
-    if (!token) {
-      alert("You must be logged in to create a recipe.");
-      return;
-    }
-
     const response = await fetch("https://yummies-vlth.onrender.com/api/recipes", {
       method: "POST",
       headers: {
