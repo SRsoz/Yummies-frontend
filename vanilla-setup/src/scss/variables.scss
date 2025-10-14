@@ -8,6 +8,9 @@ $error-color: #da2232;
 // Extra färger för olika nivåer av text
 $text-light: color.adjust($text-color, $lightness: 40%);
 $text-border: color.adjust($text-color, $lightness: 50%);
+$background-gradient: linear-gradient(135deg, #f5f5f5, #fafafa);
+$border-color: #ddd;
+$card-bg: $secondary-color;
 
 // Typsnitt
 $font-stack: 'Poppins', sans-serif;
@@ -22,6 +25,10 @@ $spacing-xl: 3rem;
 $radius-sm: 8px;
 $radius-md: 12px;
 $radius-lg: 20px;
+
+// Skuggor
+$shadow-light: 0 4px 10px rgba(0, 0, 0, 0.1);
+$shadow-medium: 0 4px 15px rgba(0, 0, 0, 0.15);
 
 // Breakpoints
 $mobile: 480px;

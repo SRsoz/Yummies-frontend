@@ -1,164 +1,167 @@
-// Variables for colors and fonts
-$primary-color: #5b86e5;
-$background-gradient: linear-gradient(135deg, #e0d4ff, #f3e7ff);
-$text-color: #333;
-$light-text-color: #666;
-$border-radius: 10px;
-$box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+@use 'sass:color';
+@use './variables' as *;
 
-// Reset and base styles
+// Reset och bas
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-stack;
 }
 
 body {
-    background: $background-gradient;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+  background-color: $secondary-color;
+  color: $text-color;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-// Header styles
+// Header (matchar index och sign in)
 header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $spacing-md;
+
+  .logo {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    gap: $spacing-lg;
 
-    .logo {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-
-        img {
-            width: 40px;
-            height: 40px;
-        }
-
-        span {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: $text-color;
-        }
+    img {
+      height: auto;
+      max-height: 200px; // matchar index och sign in
+      display: block;
     }
 
-    nav {
+    span {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: $text-color;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      gap: $spacing-lg;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      li {
         a {
-            text-decoration: none;
-            color: $text-color;
-            font-size: 1rem;
-            border-bottom: 1px solid $text-color;
-            padding-bottom: 2px;
-            transition: color 0.3s;
+          font-size: 1rem;
+          color: $text-color;
+          text-decoration: none;
+          transition: color 0.3s;
 
-            &:hover {
-                color: $primary-color;
-            }
+          &:hover {
+            color: $primary-color;
+          }
         }
+      }
     }
+  }
 }
 
-// Main content styles
+// Main - centrerar register-form
 main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+  padding: $spacing-lg;
+  display: block;
 
-    .login-container {
-        background: white;
-        padding: 40px;
-        border-radius: $border-radius;
-        box-shadow: $box-shadow;
-        width: 100%;
-        max-width: 400px;
-        text-align: center;
+  .login-container {
+    background: $secondary-color;
+    padding: $spacing-xl;
+    border-radius: $radius-md;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 400px;
+    margin: $spacing-lg auto; // centrerar horisontellt
+    text-align: center;
 
-        h2 {
-            font-size: 1.5rem;
-            color: $text-color;
-            margin-bottom: 20px;
-        }
-
-        form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-
-            .input-group {
-                text-align: left;
-
-                label {
-                    display: block;
-                    font-size: 0.9rem;
-                    color: $text-color;
-                    margin-bottom: 5px;
-                }
-
-                input {
-                    width: 100%;
-                    padding: 10px;
-                    border: 1px solid #ddd;
-                    border-radius: 5px;
-                    font-size: 1rem;
-                    color: $text-color;
-                    outline: none;
-                    transition: border-color 0.3s;
-
-                    &:focus {
-                        border-color: $primary-color;
-                    }
-                }
-
-                .password-wrapper {
-                    position: relative;
-
-                    .toggle-password {
-                        position: absolute;
-                        right: 10px;
-                        top: 50%;
-                        transform: translateY(-50%);
-                        cursor: pointer;
-                        font-size: 1.2rem;
-                        color: $light-text-color;
-                    }
-                }
-            }
-
-            button {
-                background: $primary-color;
-                color: white;
-                padding: 12px;
-                border: none;
-                border-radius: 5px;
-                font-size: 1rem;
-                font-weight: bold;
-                cursor: pointer;
-                transition: background 0.3s;
-
-                &:hover {
-                    background: darken($primary-color, 10%);
-                }
-            }
-
-            p {
-                font-size: 0.9rem;
-                color: $light-text-color;
-
-                a {
-                    color: $primary-color;
-                    text-decoration: none;
-                    font-weight: bold;
-
-                    &:hover {
-                        text-decoration: underline;
-                    }
-                }
-            }
-        }
+    h2 {
+      font-size: 1.5rem;
+      color: $text-color;
+      margin-bottom: $spacing-md;
     }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: $spacing-md;
+
+      .input-group {
+        text-align: left;
+
+        label {
+          display: block;
+          font-size: 0.9rem;
+          color: $text-color;
+          margin-bottom: 5px;
+        }
+
+        input {
+          width: 100%;
+          padding: $spacing-sm $spacing-md;
+          border: 1px solid $text-border;
+          border-radius: $radius-sm;
+          font-size: 1rem;
+          color: $text-color;
+          outline: none;
+          transition: border-color 0.3s;
+
+          &:focus {
+            border-color: $primary-color;
+          }
+        }
+
+        .password-wrapper {
+          position: relative;
+
+          .toggle-password {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            font-size: 1.2rem;
+            color: $text-light;
+          }
+        }
+      }
+
+      button {
+        background: $primary-color;
+        color: $secondary-color;
+        padding: $spacing-md;
+        border: none;
+        border-radius: $radius-sm;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+
+        &:hover {
+          background: color.scale($primary-color, $lightness: -10%);
+        }
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: $text-light;
+
+        a {
+          color: $primary-color;
+          text-decoration: none;
+          font-weight: bold;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
 }

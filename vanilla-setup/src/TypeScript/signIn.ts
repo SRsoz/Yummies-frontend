@@ -1,3 +1,5 @@
+import "../scss/signIn.scss"
+
 // Function to simulate user login (used for logging/debugging)
 export function loggaIn() {
   console.log("Användare loggar in...");
