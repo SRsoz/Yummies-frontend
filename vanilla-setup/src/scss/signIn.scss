@@ -23,9 +23,9 @@ header {
   padding: $spacing-md;
 
   .logo {
-    display: flex;
-    align-items: center;
-    gap: $spacing-lg;
+    height: 15rem;
+    width: 16rem;
+    display: block;
 
     img {
       height: auto;
