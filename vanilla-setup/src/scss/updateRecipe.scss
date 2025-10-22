@@ -30,9 +30,9 @@ header {
   background-color: $primary-bg;
 
   .logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: $logo-color;
+    height: 15rem;
+    width: 16rem;
+    display: block;
   }
 
   nav {
